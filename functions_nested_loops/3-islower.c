@@ -8,7 +8,7 @@
  *
  * Return: is lowercase 1, if not 0
  *
- * c- letter lowercase or uppercase
+ * @c: letter lowercase or uppercase
  */
 
 int _islower(int c)
