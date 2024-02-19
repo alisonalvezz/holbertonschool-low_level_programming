@@ -4,7 +4,7 @@
 #endif
 
 /**
- * print_alphabet - prints _putchar
+ * print_alphabet_x10 - prints alphabet x10
  *
 */
 
