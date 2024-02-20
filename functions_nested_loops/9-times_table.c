@@ -25,14 +25,11 @@ void times_table(void)
 			_putchar(p);
 			_putchar(',');
 			_putchar('.');
-			_putchar('.');
-		}
+			_putchar('\n');
 
 		if (p <= 9)
 			_putchar(',');
-
-
+		}
 	}
 
-		_putchar('\n');
 }
