@@ -2,9 +2,9 @@
 #include <stdio.h>
 /**
  * _strcat - function to concadenate two strings
+ * _strlen - lenght of dest
  * @dest: string of destine
  * @src: src string
- * _strlen - lenght of dest
  * Return: string concadenated
  */
 
