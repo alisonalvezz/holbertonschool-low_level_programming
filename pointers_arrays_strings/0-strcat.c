@@ -1,26 +1,34 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * _strcat - function to concadenate two strings
  * @dest: string of destine
  * @src: src string
+ * _strlen - lenght of dest
  * Return: string concadenated
  */
 
 char *_strcat(char *dest, char *src)
 {
-	char *a = dest;
+	int i = 0;
+	int b;
+	size_t c = _strlen(dest);
 
-	while (*dest)
+	while (src[i] != '\0')
+		i++;
+	for (b = 0; b < i; b++)
 	{
-
-	while (*src)
-	{
-		*dest++ = *src++;
+		dest[c + b] += src[b];
 	}
-	}
+	dest[c + b] = '\0';
+	return (dest);
+}
+	int _strlen(char *dest)
+{
+	int lenght = 0;
 
-	*dest = '\0';
+	while (*dest++)
+		lenght++;
 
-	return (a);
+	return (lenght);
 }
