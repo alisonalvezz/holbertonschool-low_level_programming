@@ -3,19 +3,32 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * _strdup - duplicates a string
+ * @str: string
+ * Return: return
+ */
+
 char *_strdup(char *str)
 {
-	const char *string;
+	char *d;
+	int i, l = 0;
 
-	char *dest;
-
-	char *strcpy(char *dest, const char *string);
-
-	*str = dest;
-
-	for (dest = 0; dest > string; dest++)
-		*str = dest;
-
-	for (dest = 0; dest < string)
+	if (str == NULL)
 		return (NULL);
+
+	for (i = 0; str[i]; i++)
+		l++;
+
+	d = malloc(sizeof(char) + (l + 1));
+
+	if (d == NULL)
+		return (NULL);
+
+	for (i = 0; str[i]; i++)
+		d[i] = str[i];
+
+	d[l] = '\0';
+
+	return (d);
 }
