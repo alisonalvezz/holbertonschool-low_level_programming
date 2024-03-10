@@ -15,18 +15,26 @@ char *_strdup(char *str)
 	int i, l = 0;
 
 	if (str == NULL)
+	{
 		return (NULL);
+	}
 
 	for (i = 0; str[i]; i++)
+	{
 		l++;
+	}
 
-	d = malloc(sizeof(char) + (l + 1));
+	d = malloc(l + 1);
 
 	if (d == NULL)
+	{
 		return (NULL);
+	}
 
 	for (i = 0; str[i]; i++)
+	{
 		d[i] = str[i];
+	}
 
 	d[l] = '\0';
 
