@@ -55,17 +55,23 @@ dog_t *new_dog(char *name, float age, char *owner)
 		n++;
 	}
 
+	new_dog->name[n] = '\0';
+
 	new_dog->owner = malloc(sizeof(char) * (string_length(owner) + 1));
 	if (new_dog->owner == NULL)
 	{
 		free(new_dog);
+		free(new_dog->name);
 		return (NULL);
 	}
+
 	while (owner[o] != '\0')
 	{
 		new_dog->owner[o] = owner[o];
 		o++;
 	}
+
+	new_dog->owner[o] = '\0';
 
 	/**no es necesario copiar age xq es float y no un puntero a una string de chars**/
 	new_dog->age = age;
