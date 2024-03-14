@@ -11,6 +11,23 @@
  * Return: null if it fails
  */
 
+/**
+ * string_lenght - the lenght of a string
+ * @str: the string
+ * Return: the string
+ */
+int string_length(const char *str)
+{
+	/**funcion para calcular el largo de una string**/
+	int lenght = 0;
+	while (str[lenght] != '\0')
+	{
+	lenght ++
+	}
+	return lenght;
+}
+
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog = malloc(sizeof(dog_t));
@@ -20,7 +37,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	/**alocar memoria para el nombre**/
-	new_dog->name = malloc(strlen(name + 1));
+	new_dog->name = malloc(sizeof(char) * (string_lenght(name) + 1));
 
 	/**si es nulo, libera la memoria que se alocópara el nombre**/
 	if (new_dog->name == NULL)
@@ -31,15 +48,25 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/** copiar el nombre **/
 
-	strcpy(new_dog->name, name);
+	int n = 0;
+	while (name[n] != '\0')
+	{
+		new_dog->name[n] = name[n];
+		n++;
+	}
 
-	new_dog->owner = malloc(strlen(owner + 1));
+	new_dog->owner = malloc(sizeof(char) * (string_lenght(owner) + 1));
 	if (new_dog->owner == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
-	strcpy(new_dog->owner, owner);
+	int o;
+	while (owner[o] != '\0')
+	{
+		new_dog->owner[o] = owner[o];
+		o++;
+	}
 
 	/**no es necesario copiar age xq es float y no un puntero a una string de chars**/
 	new_dog->age = age;
