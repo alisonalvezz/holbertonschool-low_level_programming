@@ -1,79 +1,46 @@
 #include "dog.h"
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
-/**
- * new_dog - new dog
- * @age: age of the new dog
- * @name: name of the new dog
- * @owner: owner of the new dog
- * Return: null if it fails
- */
-
-/**
- * string_lenght - the lenght of a string
- * @str: the string
- * Return: the string
- */
-int string_length (const char *string)
+dog_t *new_dog(char *name, float age, char *owner);
 {
-	/**funcion para calcular el largo de una string**/
-	int length = 0;
-	while (string[length] != '\0')
-	{
-	length++;
-	}
-	return length;
-}
+	/** alocar memoria*/
+	int lenght_name = 0, lenght_owner = 0;
+	int i;
 
-
-dog_t *new_dog(char *name, float age, char *owner)
-{
-	int o = 0;
-	int n = 0;
 	dog_t *new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-	{
-	return (NULL);
-	}
 
-	/**alocar memoria para el nombre**/
-	new_dog->name = malloc(sizeof(char) * (string_length(name) + 1));
-
-	/**si es nulo, libera la memoria que se alocÃ³para el nombre**/
-	if (new_dog->name == NULL)
-	{
-		free(new_dog);
+	if (!new_dog)
+	{	/** checkear si la alocaciÃ³n fue exitosa*/
 		return (NULL);
 	}
 
-	/** copiar el nombre **/
-	while (name[n] != '\0')
-	{
-		new_dog->name[n] = name[n];
-		n++;
-	}
+	for (; name[lenght_name]; lenght_name++) /**calcular tamaÃo de strings*/
+		;
+	for (; owner[lenght_owner]; lenght_owner++)
+		;
+	new_dog->name = malloc(sizeof(char) * (lenght_name + 1));
+	new_dog->owner = malloc(sizeof(char) * (lenght_owner + 1));
 
-	new_dog->name[n] = '\0';
-
-	new_dog->owner = malloc(sizeof(char) * (string_length(owner) + 1));
-	if (new_dog->owner == NULL)
-	{
-		free(new_dog);
+	if (!new_dog->name || !new_dog->owner)
+	{	/** si la alocacion fue  exitosa**/
 		free(new_dog->name);
+		free(new_dog->owner);
+		free(new_dog);
 		return (NULL);
 	}
 
-	while (owner[o] != '\0')
+	for (i = 0; i <= lenght_name; i++)
+	/** copiar el nombre y el dueÃo char por char*/
 	{
-		new_dog->owner[o] = owner[o];
-		o++;
+	new_dog->name[i] = name[i]
 	}
 
-	new_dog->owner[o] = '\0';
+	for (i = 0; i <= lenght_owner; i++)
+	{
+	new_dog->owner[i] = owner[i];
+	}
 
-	/**no es necesario copiar age xq es float y no un puntero a una string de chars**/
-	new_dog->age = age;
 	return (new_dog);
+
 }
