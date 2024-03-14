@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-dog_t *new_dog(char *name, float age, char *owner);
+dog_t *new_dog(char *name, float age, char *owner)
 {
 	/** alocar memoria*/
 	int lenght_name = 0, lenght_owner = 0;
@@ -33,13 +33,15 @@ dog_t *new_dog(char *name, float age, char *owner);
 	for (i = 0; i <= lenght_name; i++)
 	/** copiar el nombre y el dueÃo char por char*/
 	{
-	new_dog->name[i] = name[i]
+	new_dog->name[i] = name[i];
 	}
 
 	for (i = 0; i <= lenght_owner; i++)
 	{
 	new_dog->owner[i] = owner[i];
 	}
+
+	new_dog->age = age;
 
 	return (new_dog);
 
