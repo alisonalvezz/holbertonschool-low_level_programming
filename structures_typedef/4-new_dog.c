@@ -16,15 +16,15 @@
  * @str: the string
  * Return: the string
  */
-int string_length(const char *str)
+int string_length (const char *string)
 {
 	/**funcion para calcular el largo de una string**/
-	int lenght = 0;
-	while (str[lenght] != '\0')
+	int length = 0;
+	while (string[length] != '\0')
 	{
-	lenght ++
+	length++;
 	}
-	return lenght;
+	return length;
 }
 
 
@@ -39,7 +39,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	/**alocar memoria para el nombre**/
-	new_dog->name = malloc(sizeof(char) * (string_lenght(name) + 1));
+	new_dog->name = malloc(sizeof(char) * (string_length(name) + 1));
 
 	/**si es nulo, libera la memoria que se alocópara el nombre**/
 	if (new_dog->name == NULL)
@@ -55,7 +55,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		n++;
 	}
 
-	new_dog->owner = malloc(sizeof(char) * (string_lenght(owner) + 1));
+	new_dog->owner = malloc(sizeof(char) * (string_length(owner) + 1));
 	if (new_dog->owner == NULL)
 	{
 		free(new_dog);
