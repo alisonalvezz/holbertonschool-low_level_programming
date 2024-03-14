@@ -30,6 +30,8 @@ int string_length(const char *str)
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	int o = 0;
+	int n = 0;
 	dog_t *new_dog = malloc(sizeof(dog_t));
 	if (new_dog == NULL)
 	{
@@ -47,8 +49,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	/** copiar el nombre **/
-
-	int n = 0;
 	while (name[n] != '\0')
 	{
 		new_dog->name[n] = name[n];
@@ -61,7 +61,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog);
 		return (NULL);
 	}
-	int o;
 	while (owner[o] != '\0')
 	{
 		new_dog->owner[o] = owner[o];
