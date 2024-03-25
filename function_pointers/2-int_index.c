@@ -1,5 +1,13 @@
 #include "function_pointers.h"
 
+/**
+ * int_index - return index place if true, if false -1
+ * @array: array
+ * @size: size of elements in the array
+ * @cmp: pointer to function
+ * Return: return
+ */
+
 int int_index(int *array, int size, int (*cmp)(int))
 {
 
