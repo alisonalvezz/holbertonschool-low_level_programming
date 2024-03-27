@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_list - prints a list
+ * list_len - length
  * @h: h
  * Return: return
  */
