@@ -1,5 +1,11 @@
 #include "lists.h"
 
+/**
+ * print_list - prints a list
+ * @h: h
+ * Return: return
+ */
+
 size_t print_list(const list_t *h)
 {
 	int count;
